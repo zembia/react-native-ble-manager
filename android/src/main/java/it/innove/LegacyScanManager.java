@@ -19,7 +19,9 @@ public class LegacyScanManager extends ScanManager {
 		scanSessionId.incrementAndGet();
 
 		getBluetoothAdapter().stopLeScan(mLeScanCallback);
-		callback.invoke();
+    if (callback != null) {
+		  callback.invoke();
+    }
 	}
 
 	private BluetoothAdapter.LeScanCallback mLeScanCallback =
